@@ -10,12 +10,12 @@ const deleteUser = async (names) => await usuario.deleteOne({ name: names });
 
 const getUsers = async () => await usuario.find().toArray();
 
-const getUser = async (names) => await usuario.find({ name: names });
+const getUser = async (names) => await usuario.find({ name: names }).toArray();
 
 export async function postCreateUser(req,res) {
     const user = req.body
     const rest = await createUser(user);
-    rest.status(200).json({status:200,response:rest});
+    res.status(200).json({status:200,response:rest});
     return rest
 }
 
@@ -23,7 +23,7 @@ export async function putUpdatedUser(req, res) {
     const name = req.query.name;
     const user = req.body;
     const rest = await updateUser(name, user);
-    rest.status(200).json({status:200,response:rest});
+    res.status(200).json({status:200,response:rest});
     return rest
 }
 
@@ -36,6 +36,7 @@ export async function deleteUsers(req,res) {
 
 export async function getUserMethod(req, res) {
     const names = req.query.name
+    console.log( names)
     const resp = await getUser(names)
     res.status(200).json({status:200,response:resp});
     return resp

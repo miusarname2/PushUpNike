@@ -7,3 +7,7 @@ export const usuarios = Router()
 const version = versionApi();
 
 usuarios.get('/',limitGrt(),getUsersMethod)
+usuarios.delete('/',limitGrt(),deleteUsers)
+usuarios.post('/',limitGrt(),postCreateUser)
+usuarios.put('/',limitGrt(),putUpdatedUser)
+usuarios.get('/byOne',limitGrt(),getUserMethod)

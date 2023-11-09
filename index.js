@@ -3,6 +3,8 @@ import session from 'express-session';
 import dotenv from 'dotenv';
 import { validarToken,crearToken } from "./controller/helpers/jwt.controller.js";
 import { usuarios } from "./controller/routes/user.routes.js";
+import { ordenes } from "./controller/routes/order.routes.js";
+import { pay } from "./controller/routes/pay.routes.js";
 import morgan from 'morgan';
 import cors from 'cors';
 
@@ -23,6 +25,8 @@ index.use(express.json());
 // Routes 
 index.use('/token',crearToken)
 index.use('/users',validarToken,usuarios)
+index.use('/orders',validarToken,ordenes)
+index.use('/pay',validarToken,pay)
 
 // Server
 index.listen(index.get('port'), () => {
