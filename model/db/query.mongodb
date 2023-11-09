@@ -1,0 +1,35 @@
+use("Nike");
+
+db.usuario.insertOne({
+  name: "Juan",
+  username: "Juan",
+  Telefono: "+576708900",
+  edad: 15,
+  compras: [],
+  dirreccion: "Clle 50 # 3 - 185",
+  pais: "venezuela",
+  constraseña: "hola",
+  email: "Oscarm.alvarezg@gmail.com",
+  isAutenticated: false,
+});
+
+db.productos.insertOne({
+  name: "Juan",
+  precio: 15.6,
+  peso: 156.2,
+  descripcion: "lind",
+  image: "http://",
+  categoria: "wapo",
+  fecha_de_creacion: new Date(),
+  stock: 150,
+});
+
+db.orden.insertOne({
+  Id:1,
+  username: "Juan",
+  monto: 1555.6,
+  dirreccion_de_entrega: "dirr",
+  email_del_correspondiente: "email@1.com",
+  fecha_de_creacion: new Date(),
+  estado: "En espera..."
+});
