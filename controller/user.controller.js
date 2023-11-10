@@ -12,6 +12,8 @@ const getUsers = async () => await usuario.find().toArray();
 
 const getUser = async (names) => await usuario.find({ name: names }).toArray();
 
+const getUserInf = async (email) => await usuario.find({ email: email }).toArray();
+
 export async function postCreateUser(req,res) {
     const user = req.body
     const rest = await createUser(user);
@@ -44,6 +46,13 @@ export async function getUserMethod(req, res) {
 
 export async function getUsersMethod(req,res){
     const resp = await getUsers()
+    res.status(200).json({status:200,response:resp});
+    return resp
+}
+
+export async function getUserInfMethod(req,res){
+    const email = req.body.email
+    const resp = await getUserInf(email)
     res.status(200).json({status:200,response:resp});
     return resp
 }

@@ -11,3 +11,4 @@ usuarios.delete('/',limitGrt(),deleteUsers)
 usuarios.post('/',limitGrt(),postCreateUser)
 usuarios.put('/',limitGrt(),putUpdatedUser)
 usuarios.get('/byOne',limitGrt(),getUserMethod)
+

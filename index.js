@@ -2,6 +2,7 @@ import express from 'express';
 import session from 'express-session';
 import dotenv from 'dotenv';
 import { validarToken,crearToken } from "./controller/helpers/jwt.controller.js";
+import { getUserInfMethod,postCreateUser } from "./controller/user.controller.js";
 import { usuarios } from "./controller/routes/user.routes.js";
 import { ordenes } from "./controller/routes/order.routes.js";
 import { pay } from "./controller/routes/pay.routes.js";
@@ -27,6 +28,8 @@ index.use('/token',crearToken)
 index.use('/users',validarToken,usuarios)
 index.use('/orders',validarToken,ordenes)
 index.use('/pay',validarToken,pay)
+index.use('/login',getUserInfMethod)
+index.use('/register',postCreateUser)
 
 // Server
 index.listen(index.get('port'), () => {
